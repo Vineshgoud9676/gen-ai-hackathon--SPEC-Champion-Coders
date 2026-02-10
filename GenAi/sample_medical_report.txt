@@ -1,0 +1,71 @@
+PATIENT MEDICAL REPORT
+
+Patient Name: John Smith
+Age: 45
+Gender: Male
+Date: February 10, 2024
+
+BLOOD TEST RESULTS:
+
+COMPLETE BLOOD COUNT (CBC):
+- Hemoglobin: 11.2 g/dL (Normal range: 12-16 g/dL)
+- Red Blood Cell Count: 4.2 million/μL (Normal range: 4.5-5.9 million/μL)
+- Hematocrit: 34% (Normal range: 38-50%)
+- White Blood Cell Count: 7,500/μL (Normal range: 4,000-11,000/μL)
+- Platelet Count: 250,000/μL (Normal range: 150,000-450,000/μL)
+
+BLOOD GLUCOSE PANEL:
+- Fasting Blood Glucose: 145 mg/dL (Normal range: 70-100 mg/dL)
+- HbA1c: 7.2% (Normal range: <5.7%)
+- Postprandial Glucose: 180 mg/dL (Normal range: <140 mg/dL)
+
+LIPID PROFILE:
+- Total Cholesterol: 240 mg/dL (Normal range: <200 mg/dL)
+- LDL Cholesterol: 160 mg/dL (Normal range: <100 mg/dL)
+- HDL Cholesterol: 35 mg/dL (Normal range: >40 mg/dL)
+- Triglycerides: 180 mg/dL (Normal range: <150 mg/dL)
+
+KIDNEY FUNCTION TESTS:
+- Blood Urea Nitrogen (BUN): 25 mg/dL (Normal range: 7-20 mg/dL)
+- Creatinine: 1.4 mg/dL (Normal range: 0.7-1.3 mg/dL)
+- eGFR: 55 mL/min/1.73m² (Normal range: >60 mL/min/1.73m²)
+
+LIVER FUNCTION TESTS:
+- ALT (SGPT): 45 U/L (Normal range: 10-40 U/L)
+- AST (SGOT): 42 U/L (Normal range: 10-34 U/L)
+- ALP: 120 U/L (Normal range: 44-147 U/L)
+- Bilirubin: 1.2 mg/dL (Normal range: 0.3-1.2 mg/dL)
+
+THYROID FUNCTION:
+- TSH: 3.5 mIU/L (Normal range: 0.4-4.0 mIU/L)
+- T3: 120 ng/dL (Normal range: 80-200 ng/dL)
+- T4: 8.5 μg/dL (Normal range: 5.0-12.0 μg/dL)
+
+URINALYSIS:
+- Color: Yellow
+- Clarity: Clear
+- pH: 6.0 (Normal range: 4.5-8.0)
+- Protein: Trace (Normal: Negative)
+- Glucose: Positive (Normal: Negative)
+- Ketones: Negative
+- RBC: 2-3/hpf (Normal: 0-3/hpf)
+- WBC: 4-6/hpf (Normal: 0-5/hpf)
+
+DOCTOR'S NOTES:
+Patient presents with symptoms of fatigue, increased thirst, and frequent urination. Physical examination reveals mild pallor. Blood pressure: 140/90 mmHg. Weight: 85 kg, Height: 175 cm (BMI: 27.8).
+
+RECOMMENDATIONS:
+1. Further evaluation for diabetes mellitus
+2. Dietary consultation for cholesterol management
+3. Iron studies to evaluate anemia
+4. Follow-up in 2 weeks
+5. Lifestyle modifications including regular exercise and balanced diet
+
+IMPRESSION:
+- Suspected Type 2 Diabetes Mellitus
+- Dyslipidemia
+- Mild anemia
+- Early stage kidney dysfunction
+- Mildly elevated liver enzymes
+
+Please consult with your healthcare provider for proper diagnosis and treatment plan.

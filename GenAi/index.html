@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediSimplify AI - Medical Report Simplifier</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <h1>MediSimplify AI</h1>
+            </div>
+            <div class="language-selector">
+                <label for="language-select">Language:</label>
+                <select id="language-select" onchange="changeLanguage()">
+                    <option value="en">English</option>
+                    <option value="hi">हिंदी (Hindi)</option>
+                    <option value="te">తెలుగు (Telugu)</option>
+                </select>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li id="authNav"><a href="#" id="authLink">Sign In</a></li>
+                    <li id="profileNav" style="display: none;"><a href="#" id="profileLink">My Reports</a></li>
+                    <li id="logoutNav" style="display: none;"><a href="#" id="logoutLink">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Registration Required Banner -->
+    <div id="registrationBanner" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%); color: white; padding: 20px 0; text-align: center; display: none;">
+        <div class="container">
+            <h3><i class="fas fa-user-lock"></i> Registration Required</h3>
+            <p>Please register to access MediSimplify AI medical report analysis features</p>
+            <button class="btn btn-primary" onclick="window.location.href='register.html'" style="background: white; color: #ff6b6b; border: none; padding: 12px 25px; border-radius: 30px; font-weight: 600; cursor: pointer;">
+                <i class="fas fa-user-plus"></i> Register Now
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Understand Your Medical Reports with AI</h2>
+                <p>Transform complex medical terminology into simple, easy-to-understand language. No more confusion - just clear health insights.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" id="startBtn">
+                        <i class="fas fa-file-medical"></i> Start Simplifying
+                    </button>
+                    <button class="btn btn-secondary" id="learnMoreBtn">
+                        <i class="fas fa-graduation-cap"></i> Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="homepageMedisimplify.png" alt="Medical Report Analysis">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose MediSimplify AI?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Simple Language</h3>
+                    <p>Complex medical terms translated into everyday language you can understand</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <h3>Abnormal Values Highlighted</h3>
+                    <p>Important parameters and abnormal values clearly identified and explained</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Doctor Questions Generator</h3>
+                    <p>Get suggested questions to discuss with your healthcare provider</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Privacy Protected</h3>
+                    <p>Your medical data is processed securely with no storage of personal information</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Mission</h2>
+                    <p>MediSimplify AI bridges the communication gap between complex medical reports and patient understanding. We believe everyone deserves to know what their health reports mean without needing a medical degree.</p>
+                    <p>Our AI-powered platform transforms technical medical jargon into clear, simple explanations while maintaining medical accuracy and safety standards.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h3>1000+</h3>
+                            <p>Reports Simplified</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>95%</h3>
+                            <p>User Satisfaction</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>24/7</h3>
+                            <p>Availability</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://img.freepik.com/free-vector/medical-report-concept-illustration_114360-2880.jpg" alt="Medical Report Simplification">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Upload or Paste Report</h3>
+                        <p>Simply upload your medical report file or paste the text content directly into our system</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>AI Analysis</h3>
+                        <p>Our advanced AI analyzes the report, identifying key medical terms, values, and important parameters</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Get Simplified Results</h3>
+                        <p>Receive a clear explanation in simple language with highlighted abnormal values and doctor questions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Application Section -->
+    <section class="app-section" id="app">
+        <div class="container">
+            <div class="app-container">
+                <div class="upload-section">
+                    <h2>Simplify Your Medical Report</h2>
+                    <div class="upload-options">
+                        <div class="upload-box" id="uploadBox">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & Drop your medical report here</p>
+                            <p class="small-text">Supports PDF and Word documents</p>
+                            <input type="file" id="fileInput" accept=".pdf,.doc,.docx" style="display: none;">
+                        </div>
+                    </div>
+                    <button class="btn btn-analyze" id="analyzeBtn">
+                        <i class="fas fa-sync"></i> Analyze Report
+                    </button>
+                </div>
+
+                <div class="processing-section" id="processingSection" style="display: none;">
+                    <div class="processing-content">
+                        <div class="spinner"></div>
+                        <h3>Analyzing your medical report...</h3>
+                        <p>Our AI is processing your report to provide a simplified explanation</p>
+                        <div class="processing-steps">
+                            <div class="processing-step active">1. Reading medical report</div>
+                            <div class="processing-step">2. Identifying medical terms</div>
+                            <div class="processing-step">3. Simplifying language</div>
+                            <div class="processing-step">4. Generating explanations</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-section" id="resultSection" style="display: none;">
+                    <div class="result-header">
+                        <h2>Simplified Report Analysis</h2>
+                        <div class="result-actions">
+                            <button class="btn btn-small" id="copyResult">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                            <button class="btn btn-small" id="printResult">
+                                <i class="fas fa-print"></i> Print
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="result-content">
+                        <div class="summary-section">
+                            <h3><i class="fas fa-file-alt"></i> Summary</h3>
+                            <div class="summary-content" id="summaryContent">
+                                <!-- Summary will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="abnormal-section">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Important Values</h3>
+                            <div class="abnormal-content" id="abnormalContent">
+                                <!-- Abnormal values will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="explanation-section">
+                            <h3><i class="fas fa-book"></i> Medical Terms Explained</h3>
+                            <div class="explanation-content" id="explanationContent">
+                                <!-- Term explanations will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="questions-section">
+                            <h3><i class="fas fa-question-circle"></i> Questions for Your Doctor</h3>
+                            <div class="questions-content" id="questionsContent">
+                                <!-- Doctor questions will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="nutrition-section">
+                            <h3><i class="fas fa-apple-alt"></i> Nutrition Recommendations</h3>
+                            <div class="nutrition-content" id="nutritionContent">
+                                <!-- Nutrition suggestions will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section class="disclaimer">
+        <div class="container">
+            <div class="disclaimer-content">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <h3>Important Disclaimer</h3>
+                    <p>MediSimplify AI provides educational information only and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult with qualified healthcare providers for medical concerns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>support@medisimplify.ai</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Healthcare Innovation Center</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>MediSimplify AI</h3>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MediSimplify AI. All rights reserved. | Designed for better healthcare communication</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Authentication Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="authModalTitle">Sign In</h2>
+                <span class="close" id="closeAuthModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="auth-tabs">
+                    <button class="tab-button active" id="signInTab">Sign In</button>
+                    <button class="tab-button" id="signUpTab">Sign Up</button>
+                </div>
+                <form id="authForm">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div id="confirmPasswordGroup" class="form-group" style="display: none;">
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword">
+                    </div>
+                    <div id="nameGroup" class="form-group" style="display: none;">
+                        <label for="fullName">Full Name:</label>
+                        <input type="text" id="fullName" name="fullName">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="authSubmitBtn">Sign In</button>
+                </form>
+                <div class="auth-footer">
+                    <button id="forgotPasswordBtn" style="display: none;">Forgot Password?</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h2>My Reports</h2>
+                <span class="close" id="closeProfileModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="profile-content">
+                    <div class="user-info">
+                        <h3 id="userFullName">User Name</h3>
+                        <p id="userEmail">user@example.com</p>
+                    </div>
+                    <div class="reports-section">
+                        <h4>Saved Reports</h4>
+                        <div id="reportsList" class="reports-list">
+                            <p class="no-reports-message">No reports saved yet. Analyze your first medical report to get started.</p>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="btn btn-secondary" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="toastMessage">Operation completed successfully!</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="language.js"></script>
+</body>
+</html>

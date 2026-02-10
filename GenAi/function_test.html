@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Test Verification</title>
+</head>
+<body>
+    <h1>Upload and Analysis Test</h1>
+    <p>Testing file upload and analysis functionality...</p>
+    
+    <script>
+        // Test the key functions
+        console.log('Testing file upload functionality...');
+        
+        // Simulate a text file
+        const testFile = new File(['Patient: John Doe\nAge: 45\nBlood Pressure: 120/80\nCholesterol: 200 mg/dL\nGlucose: 95 mg/dL'], 'test_report.txt', {type: 'text/plain'});
+        
+        console.log('Test file created:', testFile);
+        console.log('File type:', testFile.type);
+        console.log('File size:', testFile.size);
+        
+        // Test FileReader
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            console.log('File read successfully!');
+            console.log('Content length:', e.target.result.length);
+            console.log('First 100 chars:', e.target.result.substring(0, 100));
+        };
+        reader.onerror = function(e) {
+            console.error('File read error:', e);
+        };
+        reader.readAsText(testFile);
+        
+        console.log('Test completed. Check console for results.');
+    </script>
+</body>
+</html>
